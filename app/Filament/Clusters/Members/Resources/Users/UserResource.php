@@ -1,0 +1,84 @@
+<?php
+
+namespace App\Filament\Clusters\Members\Resources\Users;
+
+use App\Filament\Clusters\Members\MembersCluster;
+use App\Filament\Clusters\Members\Resources\Users\Pages\CreateUser;
+use App\Filament\Clusters\Members\Resources\Users\Pages\EditUser;
+use App\Filament\Clusters\Members\Resources\Users\Pages\ListUsers;
+use App\Filament\Clusters\Members\Resources\Users\Pages\ViewUser;
+use App\Filament\Clusters\Members\Resources\Users\Schemas\UserForm;
+use App\Filament\Clusters\Members\Resources\Users\Schemas\UserInfolist;
+use App\Filament\Clusters\Members\Resources\Users\Tables\UsersTable;
+use App\Models\User;
+use BackedEnum;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+class UserResource extends Resource
+{
+    protected static ?string $model = User::class;
+
+    protected static ?string $modelLabel = 'usuario';
+
+    protected static ?string $pluralModelLabel = 'usuarios';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?string $cluster = MembersCluster::class;
+
+    protected static ?int $navigationSort = 1;
+
+    protected static ?string $navigationLabel = 'Usuarios';
+
+    public static function form(Schema $schema): Schema
+    {
+        return UserForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return UserInfolist::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return UsersTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            RelationManagers\CertificatesRelationManager::class,
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListUsers::route('/'),
+            'create' => CreateUser::route('/create'),
+            // 'view' => ViewUser::route('/{record}'),
+            'edit' => EditUser::route('/{record}/edit'),
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->where('is_super_admin', false);
+    }
+
+    public static function getRecordRouteBindingEloquentQuery(): Builder
+    {
+        return parent::getRecordRouteBindingEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+    }
+}

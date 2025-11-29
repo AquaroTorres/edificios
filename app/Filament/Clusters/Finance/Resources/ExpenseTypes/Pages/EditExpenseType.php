@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Filament\Clusters\Finance\Resources\ExpenseTypes\Pages;
+
+use App\Filament\Clusters\Finance\Resources\ExpenseTypes\ExpenseTypeResource;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditExpenseType extends EditRecord
+{
+    protected static string $resource = ExpenseTypeResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            ViewAction::make(),
+            DeleteAction::make(),
+        ];
+    }
+}
