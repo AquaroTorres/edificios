@@ -34,8 +34,6 @@ class UserExporter extends Exporter
                 ->label('Dirección'),
             ExportColumn::make('commune.name')
                 ->label('Comuna'),
-            ExportColumn::make('userType.name')
-                ->label('Tipo de Usuario'),
             ExportColumn::make('is_active')
                 ->label('Activo')
                 ->formatStateUsing(fn ($state) => $state ? 'Sí' : 'No'),

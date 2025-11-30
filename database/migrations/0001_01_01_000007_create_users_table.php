@@ -18,28 +18,12 @@ return new class extends Migration
             $table->string('run')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->date('birth_date')->nullable();
             $table->date('join_date')->nullable();
             $table->string('position')->nullable();
-            $table->date('leave_date')->nullable();
             $table->boolean('is_active')->default(true);
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_super_admin')->default(false);
             $table->enum('membership_status', ['activo', 'inactivo', 'suspendido'])->default('activo');
-            $table->foreignId('user_type_id')->nullable()->constrained('user_types')->onDeleteNull();
-
-            // Nuevos campos
-            $table->enum('gender', ['masculino', 'femenino'])->nullable();
-            $table->boolean('baptism')->default(false);
-            $table->boolean('initiation')->default(false);
-            $table->boolean('confirmation')->default(false);
-            $table->enum('row_position', ['derecha', 'izquierda'])->nullable();
-            $table->string('address')->nullable();
-            $table->string('commune_id')->nullable();
-            $table->text('health_background')->nullable();
-            $table->string('photo_path')->nullable();
-            $table->json('social_networks')->nullable();
-            $table->json('annotations')->nullable();
 
             $table->text('signature')->nullable();
             $table->timestamp('email_verified_at')->nullable();

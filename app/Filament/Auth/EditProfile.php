@@ -228,7 +228,7 @@ class EditProfile extends BaseEditProfile
                                         TextEntry::make('amount')
                                             ->formatStateUsing(fn ($state) => format_clp($state)),
                                         TextEntry::make('created_at')
-                                            ->icon(Heroicon::DocumentText)
+                                            ->icon((string) Heroicon::DocumentText)
                                             ->action(
                                                 Action::make('view')
                                                     ->infolist(function (Schema $schema) {
@@ -252,8 +252,6 @@ class EditProfile extends BaseEditProfile
                         TextEntry::make('join_date')
                             ->label('Fecha de ingreso')
                             ->date('d/m/Y'),
-                        TextEntry::make('userType.name')
-                            ->label('Tipo de usuario'),
                         TextEntry::make('membership_status')
                             ->label('Estado de membresía'),
                         TextEntry::make('position')

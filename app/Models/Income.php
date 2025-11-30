@@ -27,7 +27,6 @@ class Income extends Model implements Auditable
         'mechanism',
         'user_id',
         'receiver_id',
-        'membership_fee_id',
         'file_path',
     ];
 
@@ -55,22 +54,6 @@ class Income extends Model implements Auditable
         return $this->belongsTo(IncomeType::class);
     }
 
-    /**
-     * Cuota de membresía asociada (si este income es un pago de cuota)
-     */
-    public function membershipFee(): BelongsTo
-    {
-        return $this->belongsTo(MembershipFee::class);
-    }
-
-    /**
-     * Verifica si este income es un pago de cuota
-     */
-    public function isMembershipFeePayment(): bool
-    {
-        return $this->income_type_id === 2 && $this->membership_fee_id !== null;
-    }
-
     // Generate PDF for income payment
     public function generatePdf()
     {
@@ -85,30 +68,8 @@ class Income extends Model implements Auditable
     {
         parent::boot();
 
-        // Auto-assign income_type_id for membership fee payments
-        static::creating(function (Income $income) {
-            if ($income->membership_fee_id && ! $income->income_type_id) {
-                $income->income_type_id = $income->membershipFee->income_type_id;
-                $income->user_id = $income->membershipFee->user_id;
-                if ($income->receiver_id === null) {
-                    $income->receiver_id = auth()->id();
-                }
-            }
-        });
-
-        // Recalcular paid_amount cuando se elimina un pago
-        static::deleted(function (Income $income) {
-            if ($income->membershipFee) {
-                $income->membershipFee->recalculatePaidAmount();
-            }
-        });
-
-        // Recalcular paid_amount cuando se crea un pago
+        // Skip sending notifications when running in console (e.g., during seeders)
         static::created(function (Income $income) {
-            if ($income->membershipFee) {
-                $income->membershipFee->recalculatePaidAmount();
-            }
-            // Skip sending notifications when running in console (e.g., during seeders)
             if (! App::runningInConsole() && $income->user && ! empty($income->user->email)) {
                 $income->user->notify(new IncomeRegistered($income));
             }

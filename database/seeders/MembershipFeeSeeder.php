@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\MembershipFee;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class MembershipFeeSeeder extends Seeder

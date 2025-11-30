@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Inerba\DbConfig\DbConfig;
 
@@ -39,24 +38,14 @@ class DatabaseSeeder extends Seeder
         // copy(resource_path('logos/siervos_de_maria.png'), public_path('logo.png'));
 
         $this->call([
-            CategorySeeder::class,
-            UserTypeSeeder::class,
             UserSeeder::class,
             AccountSeeder::class,
             ExpenseTypeSeeder::class,
             IncomeTypeSeeder::class,
-            LocationSeeder::class,
-            ItemSeeder::class,
-            ItemAssignmentSeeder::class,
             NewsSeeder::class,
-            MinuteSeeder::class,
-            CertificateTypeSeeder::class,
-            CertificateSeeder::class,
-            AttendanceSeeder::class,
         ]);
 
         // command fees:generate 2025
-        \Artisan::call('fees:generate', ['year' => 2025]);
         $this->call([
             IncomeSeeder::class,
             ExpenseSeeder::class,

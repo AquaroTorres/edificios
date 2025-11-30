@@ -20,13 +20,10 @@ return new class extends Migration
             $table->foreignId('income_type_id')->constrained('income_types')->onDelete('cascade');
             $table->string('mechanism')->nullable();
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
-            $table->foreignId('membership_fee_id')->nullable()->constrained('membership_fees')->onDelete('cascade');
             $table->string('file_path')->nullable();
             $table->foreignId('receiver_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->index('membership_fee_id');
         });
     }
 

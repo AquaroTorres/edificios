@@ -26,16 +26,16 @@ class FinanceDashboard extends Page
     public function getHeaderWidgets(): array
     {
         return [
-            Widgets\FinanceKpisWidget::class,
+            // Widgets\FinanceKpisWidget::class,
         ];
     }
 
     public function getFooterWidgets(): array
     {
         return [
-            Widgets\FinanceIncomeByTypeWidget::class,
-            Widgets\ExpensesByTypeWidget::class,
-            Widgets\OverdueMembershipFeesWidget::class,
+            // Widgets\FinanceIncomeByTypeWidget::class,
+            // Widgets\ExpensesByTypeWidget::class,
+            // Widgets\OverdueMembershipFeesWidget::class,
         ];
     }
 }
