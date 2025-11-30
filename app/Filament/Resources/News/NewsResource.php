@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\News;
+namespace App\Filament\Resources\News;
 
-use App\Filament\Clusters\Members\MembersCluster;
-use App\Filament\Clusters\Members\Resources\News\Pages\CreateNews;
-use App\Filament\Clusters\Members\Resources\News\Pages\EditNews;
-use App\Filament\Clusters\Members\Resources\News\Pages\ListNews;
-use App\Filament\Clusters\Members\Resources\News\Schemas\NewsForm;
-use App\Filament\Clusters\Members\Resources\News\Schemas\NewsInfolist;
-use App\Filament\Clusters\Members\Resources\News\Tables\NewsTable;
+use App\Filament\Resources\News\Pages\CreateNews;
+use App\Filament\Resources\News\Pages\EditNews;
+use App\Filament\Resources\News\Pages\ListNews;
+use App\Filament\Resources\News\Schemas\NewsForm;
+use App\Filament\Resources\News\Schemas\NewsInfolist;
+use App\Filament\Resources\News\Tables\NewsTable;
 use App\Models\News;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -21,8 +20,6 @@ class NewsResource extends Resource
     protected static ?string $model = News::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
-
-    protected static ?string $cluster = MembersCluster::class;
 
     protected static ?string $navigationLabel = 'Noticias';
 

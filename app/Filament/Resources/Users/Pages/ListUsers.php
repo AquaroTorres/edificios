@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\Users\Pages;
+namespace App\Filament\Resources\Users\Pages;
 
-use App\Filament\Clusters\Members\Resources\Users\UserResource;
 use App\Filament\Exports\UserExporter;
 use App\Filament\Imports\UserImporter;
+use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\CreateAction;
 use Filament\Actions\ExportAction;
 use Filament\Actions\ImportAction;

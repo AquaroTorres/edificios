@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\Users\Tables;
+namespace App\Filament\Resources\Users\Tables;
 
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\Users;
+namespace App\Filament\Resources\Users;
 
-use App\Filament\Clusters\Members\MembersCluster;
-use App\Filament\Clusters\Members\Resources\Users\Pages\CreateUser;
-use App\Filament\Clusters\Members\Resources\Users\Pages\EditUser;
-use App\Filament\Clusters\Members\Resources\Users\Pages\ListUsers;
-use App\Filament\Clusters\Members\Resources\Users\Pages\ViewUser;
-use App\Filament\Clusters\Members\Resources\Users\Schemas\UserForm;
-use App\Filament\Clusters\Members\Resources\Users\Schemas\UserInfolist;
-use App\Filament\Clusters\Members\Resources\Users\Tables\UsersTable;
+use App\Filament\Resources\Users\Pages\CreateUser;
+use App\Filament\Resources\Users\Pages\EditUser;
+use App\Filament\Resources\Users\Pages\ListUsers;
+use App\Filament\Resources\Users\Pages\ViewUser;
+use App\Filament\Resources\Users\Schemas\UserForm;
+use App\Filament\Resources\Users\Schemas\UserInfolist;
+use App\Filament\Resources\Users\Tables\UsersTable;
 use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -30,8 +29,6 @@ class UserResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::UserCircle;
 
     protected static ?string $recordTitleAttribute = 'name';
-
-    protected static ?string $cluster = MembersCluster::class;
 
     protected static ?int $navigationSort = 1;
 
@@ -55,7 +52,6 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            RelationManagers\CertificatesRelationManager::class,
         ];
     }
 

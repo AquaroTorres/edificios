@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\News\Tables;
+namespace App\Filament\Resources\News\Tables;
 
 use App\Notifications\NewsNotification;
 use Filament\Actions\Action;
@@ -32,20 +32,6 @@ class NewsTable
                     ->sortable()
                     ->weight('bold')
                     ->size('md'),
-
-                // TextColumn::make('body')
-                //     ->label('Contenido')
-                //     ->html()
-                //     ->limit(100)
-                //     ->wrap()
-                //     ->tooltip(function (TextColumn $column): ?string {
-                //         $state = $column->getState();
-                //         if (strlen($state) <= 100) {
-                //             return null;
-                //         }
-
-                //         return strip_tags($state);
-                //     }),
 
                 TextColumn::make('link')
                     ->label('Enlace')
