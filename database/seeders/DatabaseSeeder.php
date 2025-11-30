@@ -45,6 +45,11 @@ class DatabaseSeeder extends Seeder
             NewsSeeder::class,
         ]);
 
+        $this->call([
+            UnitTypeSeeder::class,
+            UnitSeeder::class,
+        ]);
+
         // command fees:generate 2025
         $this->call([
             IncomeSeeder::class,
