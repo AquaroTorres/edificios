@@ -91,6 +91,12 @@ class SystemSettings extends AbstractPageSettings
                         TextInput::make('months_with_fees')
                             ->helperText('Meses en los cuales el sistema generará una cuota. Ej:4,6 para abril y junio.')
                             ->label('Meses con cuotas'),
+                        TextInput::make('reserve_percent')
+                            ->helperText('Porcentaje de reserva para la membresía.')
+                            ->label('Porcentaje de reserva'),
+                        TextInput::make('mora_percent')
+                            ->helperText('Porcentaje de mora para la membresía.')
+                            ->label('Porcentaje de mora'),
                     ]),
                 Section::make()
                     ->label('Redes Sociales y Enlaces')
