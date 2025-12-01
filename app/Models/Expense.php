@@ -22,7 +22,18 @@ class Expense extends Model implements Auditable
         'expense_type_id',
         'file_path',
         'user_id',
+        'billing_period_id',
     ];
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(ExpenseType::class, 'expense_type_id');
+    }
+
+    public function billingPeriod(): BelongsTo
+    {
+        return $this->belongsTo(BillingPeriod::class, 'billing_period_id');
+    }
 
     protected function casts(): array
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\Users\Pages;
+namespace App\Filament\Resources\Users\Pages;
 
-use App\Filament\Clusters\Members\Resources\Users\UserResource;
+use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\News\Schemas;
+namespace App\Filament\Resources\News\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;

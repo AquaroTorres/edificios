@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         DbConfig::set('system.subscription', false);
         DbConfig::set('system.subscription_at', null);
         DbConfig::set('system.months_with_fees', '1,2,3,4,5,6,7,8,9,10,11,12');
+        DbConfig::set('system.reserve_percent', 5);
+        DbConfig::set('system.mora_percent', 10);
         DbConfig::set('system.links', ['Youtube' => 'https://www.youtube.com']);
 
         // Create necessary directories
