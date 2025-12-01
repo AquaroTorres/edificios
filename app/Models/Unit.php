@@ -19,6 +19,7 @@ class Unit extends Model
         'rol',
         'surface',
         'proration',
+        'user_id',
     ];
 
     protected function casts(): array
@@ -34,8 +35,8 @@ class Unit extends Model
         return $this->belongsTo(UnitType::class);
     }
 
-    public function owner(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(User::class);
     }
 }

@@ -20,7 +20,7 @@ class UnitResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingOffice2;
 
-    protected static ?string $recordTitleAttribute = 'rol';
+    protected static ?string $recordTitleAttribute = 'correlative';
 
     protected static ?string $modelLabel = 'unidad';
 

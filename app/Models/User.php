@@ -94,7 +94,7 @@ class User extends Authenticatable implements Auditable, FilamentUser
 
     public function units(): HasMany
     {
-        return $this->hasMany(Unit::class, 'owner_id');
+        return $this->hasMany(Unit::class);
     }
 
     // reset password

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('rol')->unique();
             $table->decimal('surface');
             $table->decimal('proration');
-            $table->foreignId('owner_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

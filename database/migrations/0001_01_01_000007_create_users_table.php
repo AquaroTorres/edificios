@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('company')->nullable();
+            $table->string('company');
             $table->string('run')->unique();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
@@ -53,6 +53,7 @@ return new class extends Migration
         // Crear un usuario administrador
         User::create([
             'name' => 'Administrador',
+            'company' => 'N/A',
             'run' => '12345678-9',
             'email' => 'demo@floxtor.app',
             'phone' => '+1234567890',

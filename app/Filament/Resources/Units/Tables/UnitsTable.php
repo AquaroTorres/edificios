@@ -18,8 +18,9 @@ class UnitsTable
                 TextColumn::make('correlative')
                     ->label('Correlativo')
                     ->searchable(),
-                TextColumn::make('owner.company')
+                TextColumn::make('user.company')
                     ->label('Propietario (Empresa)')
+                    ->placeholder('Sin propietario')
                     ->searchable(),
                 TextColumn::make('unitType.name')
                     ->label('Tipo de Unidad')

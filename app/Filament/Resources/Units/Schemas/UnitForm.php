@@ -32,8 +32,8 @@ class UnitForm
                     ->required()
                     ->numeric(2)
                     ->suffix('%'),
-                Select::make('owner_id')
-                    ->relationship('owner', 'company', fn ($query) => $query->where('id', '!=', 1))
+                Select::make('user_id')
+                    ->relationship('user', 'company', fn ($query) => $query->where('id', '!=', 1))
                     ->label('Propietario')
                     ->columnSpan(3),
             ])
