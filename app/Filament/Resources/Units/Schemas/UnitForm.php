@@ -30,7 +30,8 @@ class UnitForm
                     ->numeric(),
                 TextInput::make('proration')
                     ->required()
-                    ->numeric(2)
+                    ->numeric()
+                    ->step(0.0000000001)
                     ->suffix('%'),
                 Select::make('user_id')
                     ->relationship('user', 'company', fn ($query) => $query->where('id', '!=', 1))

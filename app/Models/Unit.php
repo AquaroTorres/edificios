@@ -26,7 +26,7 @@ class Unit extends Model
     {
         return [
             'area_m2' => 'integer',
-            'proration' => 'decimal:4',
+            'proration' => 'decimal:10',
         ];
     }
 

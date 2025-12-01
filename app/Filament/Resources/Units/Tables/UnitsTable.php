@@ -43,11 +43,14 @@ class UnitsTable
                 TextColumn::make('proration')
                     ->label('Prorrateo')
                     ->numeric(2)
+                    ->formatStateUsing(fn ($state): string => number_format($state, 3))
                     ->sortable()
                     ->suffix('%')
                     ->summarize(
                         Sum::make()
-                            ->numeric(0)
+                            ->label('Total % prorrateo')
+                            ->numeric(2)
+                            ->formatStateUsing(fn ($state): string => number_format($state, 2))
                             ->suffix('%')
                     ),
                 TextColumn::make('created_at')

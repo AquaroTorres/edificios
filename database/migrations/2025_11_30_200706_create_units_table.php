@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('floor');
             $table->string('rol')->unique();
             $table->decimal('surface');
-            $table->decimal('proration');
+            $table->decimal('proration', 10, 7);
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();
