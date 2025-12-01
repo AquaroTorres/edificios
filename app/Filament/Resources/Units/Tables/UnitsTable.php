@@ -16,24 +16,33 @@ class UnitsTable
         return $table
             ->columns([
                 TextColumn::make('correlative')
+                    ->label('Correlativo')
+                    ->searchable(),
+                TextColumn::make('owner.company')
+                    ->label('Propietario (Empresa)')
                     ->searchable(),
                 TextColumn::make('unitType.name')
+                    ->label('Tipo de Unidad')
                     ->searchable(),
                 TextColumn::make('number')
+                    ->label('Número')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('floor')
+                    ->label('Piso')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('rol')
+                    ->label('ROL')
                     ->searchable(),
                 TextColumn::make('surface')
+                    ->label('Superficie')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('proration')
+                    ->label('Prorrateo')
                     ->numeric(2)
                     ->sortable()
-                    // add %
                     ->suffix('%')
                     ->summarize(
                         Sum::make()
@@ -41,14 +50,17 @@ class UnitsTable
                             ->suffix('%')
                     ),
                 TextColumn::make('created_at')
+                    ->label('Creado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Actualizado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('deleted_at')
+                    ->label('Eliminado')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -57,12 +69,15 @@ class UnitsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->label('Editar'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->label('Eliminar seleccionados'),
                 ]),
-            ]);
+            ])
+            ->paginationPageOptions([100]);
     }
 }

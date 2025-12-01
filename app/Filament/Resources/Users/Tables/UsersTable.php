@@ -14,6 +14,12 @@ class UsersTable
                 TextColumn::make('company')
                     ->label('Razón Social')
                     ->sortable(),
+                TextColumn::make('units.unitType.name')
+                    ->label('Tipo')
+                    ->bulleted(),
+                TextColumn::make('units.number')
+                    ->label('Numero')
+                    ->bulleted(),
                 TextColumn::make('name')
                     ->label('Nombre')
                     ->searchable()
@@ -21,20 +27,25 @@ class UsersTable
                 TextColumn::make('run')
                     ->label('RUN')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('email')
                     ->label('Correo Electrónico')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('phone')
                     ->label('Teléfono')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('position')
                     ->label('Cargo')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('membership_status')
                     ->label('Estado de Membresía')
                     ->sortable()
                     ->badge(),
+
             ])
             ->defaultSort('name');
     }

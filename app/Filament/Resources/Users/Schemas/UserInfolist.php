@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Clusters\Members\Resources\Users\Schemas;
+namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Schemas\Schema;
 use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;

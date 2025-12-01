@@ -6,6 +6,7 @@ use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
@@ -30,7 +31,15 @@ class ExpensesTable
                         thousandsSeparator: '.',
                     )
                     ->prefix('$')
-                    ->sortable(),
+                    ->sortable()
+                    ->summarize(Sum::make()
+                        ->numeric(
+                            decimalPlaces: 0,
+                            decimalSeparator: ',',
+                            thousandsSeparator: '.',
+                        )
+                        ->prefix('$')
+                    ),
                 TextColumn::make('date')
                     ->label('Fecha')
                     ->date('d/m/Y')
