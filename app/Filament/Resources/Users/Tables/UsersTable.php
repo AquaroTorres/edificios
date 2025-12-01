@@ -11,6 +11,9 @@ class UsersTable
     {
         return $table
             ->columns([
+                TextColumn::make('company')
+                    ->label('Razón Social')
+                    ->sortable(),
                 TextColumn::make('name')
                     ->label('Nombre')
                     ->searchable()
@@ -25,10 +28,6 @@ class UsersTable
                 TextColumn::make('phone')
                     ->label('Teléfono')
                     ->searchable(),
-                TextColumn::make('join_date')
-                    ->label('Fecha de Ingreso')
-                    ->date('d/m/Y')
-                    ->sortable(),
                 TextColumn::make('position')
                     ->label('Cargo')
                     ->sortable(),

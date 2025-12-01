@@ -33,4 +33,9 @@ class Unit extends Model
     {
         return $this->belongsTo(UnitType::class);
     }
+
+    public function owner(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

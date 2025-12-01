@@ -32,6 +32,7 @@ class User extends Authenticatable implements Auditable, FilamentUser
      */
     protected $fillable = [
         'name',
+        'company',
         'run',
         'email',
         'password',
@@ -89,6 +90,11 @@ class User extends Authenticatable implements Auditable, FilamentUser
     public function commune(): BelongsTo
     {
         return $this->belongsTo(Commune::class);
+    }
+
+    public function units(): HasMany
+    {
+        return $this->hasMany(Unit::class);
     }
 
     // reset password

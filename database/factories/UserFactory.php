@@ -24,7 +24,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
             'join_date' => fake()->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
-            'position' => fake()->jobTitle(),
+            'position' => null,
             'is_active' => fake()->boolean(85), // 85% probability of being active
             'is_admin' => fake()->boolean(10), // 10% probability of being admin
             'is_super_admin' => false,
