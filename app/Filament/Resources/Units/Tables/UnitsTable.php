@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Units\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -30,8 +31,15 @@ class UnitsTable
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('proration')
-                    ->numeric()
-                    ->sortable(),
+                    ->numeric(2)
+                    ->sortable()
+                    // add %
+                    ->suffix('%')
+                    ->summarize(
+                        Sum::make()
+                            ->numeric(0)
+                            ->suffix('%')
+                    ),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

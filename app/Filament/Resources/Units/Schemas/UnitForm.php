@@ -30,7 +30,9 @@ class UnitForm
                     ->numeric(),
                 TextInput::make('proration')
                     ->required()
-                    ->numeric(),
-            ]);
+                    ->numeric(2)
+                    ->suffix('%'),
+            ])
+            ->columns(7);
     }
 }
